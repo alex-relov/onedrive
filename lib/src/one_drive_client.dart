@@ -33,4 +33,10 @@ class OneDriveClient {
         cancelToken: cancelToken);
     return Result<Item>.fromJson(response.data, Item.fromJson).value;
   }
+
+  Future download(String itemId, String savePath,
+      {ProgressCallback? onReceiveProgress, CancelToken? cancelToken}) {
+    return _client.download("/me/drive/items/$itemId/content", savePath,
+        onReceiveProgress: onReceiveProgress, cancelToken: cancelToken);
+  }
 }
