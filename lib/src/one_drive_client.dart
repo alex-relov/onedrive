@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:onedrive/onedrive.dart';
-import 'package:onedrive/src/models/dtos/drive.dart';
-import 'package:onedrive/src/models/dtos/item.dart';
-import 'package:onedrive/src/models/dtos/result.dart';
 
 class OneDriveClient {
-  final OneDriveConfig config;
-  late final Dio _client = Dio(BaseOptions(
-      baseUrl: "https://graph.microsoft.com/v1.0/",
-      headers: {"Authorization": "Bearer ${config.accessToken}"}));
+  final ITokenHandler tokenHandler;
+  final String clientId;
+  late final Dio _client = Dio(
+      BaseOptions(baseUrl: "https://graph.microsoft.com/v1.0/"))
+    ..interceptors.addAll([
+      RefreshTokenInterceptor(tokenHandler: tokenHandler, clientId: clientId)
+    ]);
 
-  OneDriveClient({required this.config});
+  OneDriveClient({required this.clientId, required this.tokenHandler});
 
   Future<List<Drive>> getDrives({CancelToken? cancelToken}) async {
     var response = await _client.get("/me/drives", cancelToken: cancelToken);

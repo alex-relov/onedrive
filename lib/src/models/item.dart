@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:onedrive/src/models/dtos/base_item.dart';
+import 'package:onedrive/src/models/base_item.dart';
 
 part 'item.g.dart';
 
