@@ -1,7 +1,7 @@
 name: onedrive
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: Manage files on OneDrive
+version: 0.1.0
+repository: https://github.com/alex-relov/onedrive
 
 environment:
   sdk: ^3.5.3

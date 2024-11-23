@@ -1,3 +1,8 @@
-## 1.0.0
+## 0.1.0
 
-- Initial version.
+Implement the following features: 
+ - Download file
+ - List files
+ - Get current drive
+ - ITokenHandler
+ - Refresh access token
