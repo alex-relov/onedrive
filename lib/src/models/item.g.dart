@@ -14,7 +14,7 @@ Item _$ItemFromJson(Map<String, dynamic> json) => Item()
   ..name = json['name'] as String
   ..webUrl = json['webUrl'] as String
   ..eTag = json['eTag'] as String
-  ..cTag = json['cTag'] as String
+  ..cTag = json['cTag'] as String?
   ..size = (json['size'] as num).toInt();
 
 Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{

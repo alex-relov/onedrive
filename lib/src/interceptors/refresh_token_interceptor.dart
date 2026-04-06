@@ -18,8 +18,9 @@ class RefreshTokenInterceptor extends QueuedInterceptor {
   Future<void> onError(
       DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
-      var tokenPair = await _refreshTokenClient.refreshToken(
-          tokenHandler.getRefreshToken(), clientId);
+      var refreshToken = await tokenHandler.getRefreshToken();
+      var tokenPair =
+          await _refreshTokenClient.refreshToken(refreshToken, clientId);
       await tokenHandler.saveTokens(tokenPair);
       err.requestOptions.headers['Authorization'] =
           'Bearer ${tokenPair.accessToken}';

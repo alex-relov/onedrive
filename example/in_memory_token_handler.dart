@@ -9,7 +9,7 @@ class InMemoryTokenHandler implements ITokenHandler {
   String getAccessToken() => accesToken;
 
   @override
-  String getRefreshToken() => refreshToken;
+  Future<String> getRefreshToken() => Future.value(refreshToken);
 
   @override
   Future saveTokens(JwtToken tokens) async {

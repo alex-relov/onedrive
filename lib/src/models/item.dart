@@ -6,7 +6,7 @@ part 'item.g.dart';
 @JsonSerializable()
 class Item extends BaseItem {
   String eTag = "";
-  String cTag = "";
+  String? cTag = "";
   int size = 0;
   Item();
 

@@ -1,6 +1,6 @@
 name: onedrive
 description: Manage files on OneDrive
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/alex-relov/onedrive
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   dio: ^5.7.0
   json_annotation: ^4.9.0
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^4.0.0
